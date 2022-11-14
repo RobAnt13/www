@@ -1,112 +1,89 @@
-/*// Variables, String, Number
-let firstName = "Robo"
-let secondName = "Antony"
-let city = "Bratislava"
-let age = 38
-console.log(firstName + " " + secondName + ", " + age + " rokov" + ", " + city)
+// Základy Javascript 2
 
-// Maximálny počet bodov
-let maxPoints = 100
-// Počet dosiahnutých bodov študentov
-let student1 = 45
-let student2 = 70
+// Funkcie
 
-// Mená študentov
-let student1Name = "Harry"
-let student2Name = "Hermiona"
+/* function pozdrav1(){
+    console.log("Pozdrav 1")
+ }
 
-// Výpočet úspešnosti v %, maximálny počet bodov je 100
-let result1 = (student1 / maxPoints) * 100
-let result2 = (student2 / maxPoints) * 100
+pozdrav1()
 
-// Výsledky
-console.log(student1Name + " dosiahol " + result1 + "% úspešnosti")
-console.log(student2Name + " dosiahol " + result2 + "% úspešnosti")
+ let pozdrav2 = function(){
+    console.log("Pozdrav 2")
+ }
 
-// Dátovy typ BOOLEAN
-// String
-let firstName = "Fero"
+ pozdrav2()
 
-// Number
-let age = 21
+ let pozdrav3 = () => console.log("Pozdrav 3")
 
-// Boolean (true, false)
-let adult = false
+ pozdrav3() 
 
-// Boolean - operátory
-let result = age >= 10
-console.log(result)
+ // Funkcie - parameter a argument + šípková notácia
+
+ let naDruhu = function(num){
+    console.log(num * num)
+ }
+
+ let naDruhu = (num) => console.log(num * num)
+
+ naDruhu(2)
+ naDruhu(5)
+
+ let pozdravFunkcia = function(name){
+    console.log("Ahoj, ja som " + name)
+ }
+
+ let pozdravFunkcia = (name) => console.log("Ahoj, ja som " + name)
+
+ pozdravFunkcia("David")
+ pozdravFunkcia("Harry")
+ pozdravFunkcia("Hermiona") */
 
 
-/* let position = "Administrator"
+ // Return vo funkcii
 
-if(position === "Programator") {
-    console.log("Aky je rozdiel medzi html, css a javascriptom.")
-} else if(position === "Administrator") {
-    console.log("Ake poznate druhy sieti")
-} else if(position === "Sekretarka") {
-    console.log("Ake pozname funkcie v exceli")
-} else {
-    console.log("Chyba, zavolajte programatora")
-} 
+ let naDruhu = function(num){
+    let result = num * num
+    return result
+ }
 
-// Aplikácia na reguláciu teploty
-let temperature = 35
+let value1 = naDruhu(5)
+value1 = value1 + 50
+console.log(value1)
 
-if(temperature <= 10){
-    console.log("chladno")
-} else if(temperature >= 11 && temperature <= 25){
-    console.log("teplo")
-} else {
-    console.log("horko")
+let zvysovaciaFunkcia = function(num){
+    let result = num + 100
+    return result
 }
 
-// Filtrovať páchateľov
-let weight = 100
-let height = 190
+let value2 = zvysovaciaFunkcia(50)
+console.log(value2)
 
-if(weight >= 100 && height >= 190){
-    console.log("Hlavný podozrivý")
-} else if(weight >= 100 || height >= 190){
-    console.log("Hlavný podozrivý")
-} else {
-    console.log("Nepreverovat")
-}
+// Adult checker
 
-
-// Scope
-// Global scope (prva)
-// Local scope (druha)
-
-let prva = "Prvy text"
-
-if(true){
-    console.log(prva)
-    let druha = "Druhy text"
-    console.log(druha)
-
-    if(true){
-        let tretia = "Treti text"
-        console.log(tretia)
-        console.log(druha)
-    }
-} */
-
-// Variable shadowing
-
-let myName = "Fero"
-
-if(true){
-    let myName = "Jozo"
-
-    if(true){
-        console.log(myName)
+let adultChecker = function(age){
+    if(age >= 18){
+        let result = "Dospelý"
+        return result
+    } else {
+        let result = "Dieťa"
+        return result
     }
 }
 
-if(true){
-    console.log(myName)
+let value = adultChecker(12)
+console.log(value)
+
+if(value === "Dospelý"){
+    console.log("Výsledok kontroly veku: " + value)
+    console.log("Môžeš vstúpiť")
+} else {
+    console.log("Výsledok kontroly veku: " + value)
+    console.log("Nemôžeš vstúpiť")
 }
+
+
+
 
 
 
