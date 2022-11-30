@@ -1,28 +1,60 @@
-// Základy Javascript 3
+let criminals = [{
+    firstName: "Martin",
+    secondName: "Zeleny",
+    birth: 1985,
+    licencePlate: "85c322",
+    address: "U stlupu 16",
+    city: "Ceske Budejovice"
+}, {
+    firstName: "Jana",
+    secondName: "Ruzova",
+    birth: 1996,
+    licencePlate: "93k922",
+    address: "Malska 29",
+    city: "Ceske Budejovice"    
+}, {
+    firstName: "Filip",
+    secondName: "Modry",
+    birth: 1989,
+    licencePlate: "2ep6328",
+    address: "Stevardska 38",
+    city: "Ceske Budejovice"
+}]
 
-// Objekty
-
-let myBook = {
-    title: "Silmarillion",
-    author: "J. R. R. Tolkien",
-    published: 1977,
-    award: "Locus Award for Best Fantasy Novel"
+// Ulozime data z policka
+let filters = {
+    searchText: ""
 }
 
-// Výpis jednotlivých vlastností
-console.log(myBook.title)
-console.log(myBook.author)
-console.log(myBook.published)
-console.log(myBook.award)
+// Filter
+const renderCriminals = function(ourCriminals, tryToFind){
+    let arrayResult = ourCriminals.filter(function(oneSuspect){
+        return oneSuspect.licencePlate.toLowerCase().includes(tryToFind.searchText.toLowerCase())
+    })
 
-// Výpis všetkých vlastností naraz
-console.log(`${myBook.title} je kniha autora ${myBook.author}, bola vydana v roku ${myBook.published} a ziskala cenu ${myBook.award}`)
+    console.log (arrayResult)
 
-// Zmena vlastnosti objektu
-myBook.title = "The Hobbit"
-myBook.published = 1937
+    
+    document.querySelector("#idCriminal").innerHTML = ""
 
-console.log(`${myBook.title} je kniha od autora ${myBook.author} a bola vydana v roku ${myBook.published}`)
+
+    arrayResult.forEach(function(oneSuspect){
+        let paragraph = document.createElement("p")
+        paragraph.innerHTML = `Meno: ${oneSuspect.firstName}, <br> Priezvisko: ${oneSuspect.secondName} <br> Rok narodenia: ${oneSuspect.birth}
+        <br> Poznavacia znacka: ${oneSuspect.licencePlate} <br> Adresa: ${oneSuspect.address} <br> Mesto: ${oneSuspect.city}`
+
+        document.querySelector("#idCriminal").appendChild(paragraph)
+    })
+}
+
+// Nacitame data z policka
+let licencePlate = document.querySelector("#licence-plate")
+
+licencePlate.addEventListener("input", function(event){
+    filters.searchText = event.target.value
+    renderCriminals(criminals, filters)
+})
+
 
 
 
